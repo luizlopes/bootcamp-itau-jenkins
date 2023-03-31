@@ -1,7 +1,7 @@
 pipeline {
     agent any;
     stages {
-        stage('Install dependencies') {
+        stage('Lista arquivos') {
             when {
                 branch "add_jenkinsfile"
             }
@@ -9,12 +9,12 @@ pipeline {
                 sh "ls -la"
             }
         }
-        stage('Install dependencies') {
+        stage('Envia arquivo para AWS') {
             when {
                 branch "add_jenkinsfile"
             }
             steps {
-                curl -H 'authToken: BNUhVeITc3kgQM4g07rat62XKmiMYf' -H 'myPath: LuizLopes' -T index.html https://ktxdfuuszshdwe2fpi6niua45e0pduww.lambda-url.us-east-1.on.aws/
+                sh "curl -H 'authToken: BNUhVeITc3kgQM4g07rat62XKmiMYf' -H 'myPath: LuizLopes' -T index.html https://ktxdfuuszshdwe2fpi6niua45e0pduww.lambda-url.us-east-1.on.aws/"
             }
         }
     }
