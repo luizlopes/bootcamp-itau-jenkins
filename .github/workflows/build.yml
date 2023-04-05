@@ -1,0 +1,10 @@
+name: building-with-github-actions
+on:
+  push:
+    branches:    
+      - main
+jobs:
+  list-files:
+    runs-on: self-hosted
+    steps:
+      - run: ls -la
